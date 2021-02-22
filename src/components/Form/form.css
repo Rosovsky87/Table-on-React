@@ -1,0 +1,35 @@
+
+form{
+  margin: 100px;
+}
+
+input{
+  margin: 5px;
+  width: 170px;
+  border-radius: 7px;
+  border: 2px solid #ddd;
+}
+
+input:focus{
+  outline-color: #227ca0;
+}
+
+.btn-form {
+  cursor: pointer;
+  margin: 5px;
+  width: 178px;
+  border: 2px solid #ddd;
+  border-radius: 7px;
+}
+
+.btn-form:hover{
+  color:#227ca0
+}
+
+.btn-form:active{
+  border: 2px solid #227ca0;
+}
+
+.btn-form:focus{
+  outline: none
+}
