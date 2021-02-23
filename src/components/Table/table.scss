@@ -1,3 +1,6 @@
+$main-color: #227ca0;
+$border-color: #ddd;
+
 table {
   font-family:monospace;
   font-size: 14px;
@@ -8,14 +11,14 @@ table {
 }
 
 table td, table th {
-  border: 1px solid #ddd;
+  border: 1px solid $border-color;
   padding: 8px;
 }
 
 table tr:nth-child(even){background-color: #f2f2f2;}
 
 table tr:hover {
-  background-color: #ddd;
+  background-color: $border-color;
   font-weight: 550;
 }
 
@@ -23,7 +26,7 @@ table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #227ca0;
+  background-color: $main-color;
   color: white;
 }
 

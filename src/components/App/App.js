@@ -10,7 +10,10 @@ import Form from '../Form/Form';
 // Написал оба так как кто-то педпочитает всё приложение писать только на функицональных компонентах, кто-то предпочитает наличие различных видов компонент.
 // State у приложения минимальный и логики в приложении тоже не много, по этому все основные данные решил сосредоточить в App.
 // По той же причине не стал использовать Redux, так как посчитал, что в нём нет смысла в таком маленьком приложении.
-
+// Проект запускается коммандой npm start
+// При написании тестового использовал node-sass, установлена последняя версия для которой требуется версия node 15 версии.
+// Если проект не будет запускаться из-за разночтений версии sass и node, то нужно в package.json в строке "node-sass" поменять на версию соответствующую к вашей версии node и переустановить зависимости.
+// Проверить соответствие версии node можно здесь  https://www.npmjs.com/package/node-sass
 
 
 const keys = data.metaData.map(el => el.name);
@@ -25,7 +28,7 @@ const mapObject = (keys, client) => {
   }, {});
 };
 
-const usersList = clientsData.map((client) => mapObject(keys, client));
+const USERSLIST = clientsData.map((client) => mapObject(keys, client));
 const COLUMNS = keys.map(el => (
   {
     header: el,
@@ -38,7 +41,7 @@ const COLUMNS = keys.map(el => (
 
 class App extends Component {
   state = {
-    combinedData: usersList
+    combinedData: USERSLIST
   }
 
   addTheClient = (newClient) => {
@@ -78,7 +81,7 @@ class App extends Component {
 
 // const App = () => {
 
-//   const [combinedData, setCombinedData] = useState(usersList);
+//   const [combinedData, setCombinedData] = useState(USERSLIST);
 
 //   const addTheClient = (newClient) => {
 //     setCombinedData([...combinedData, newClient])

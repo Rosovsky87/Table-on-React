@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { data } from '../../person.json';
-import './form.css';
+import './form.scss';
 
 
 // Параметры "DOCNUM" "FIRSTNAME" "LASTNAME" сделал обязательными.
@@ -16,6 +16,21 @@ const initialState = keys.reduce((dataObject, key) => {
 }, {});
 
 
+function submitHandler(e, textValue, setText, addTheClient) {
+  e.preventDefault();
+  const { LASTNAME, FIRSTNAME, CARD } = textValue;
+
+  if (!CARD || !LASTNAME || !FIRSTNAME) {
+    alert('Заполните все обязательные поля воода отмеченные (*) : "CARD", "LASTNAME", "FIRSTNAME"');
+    return
+  }
+
+  addTheClient(textValue);
+  setText(initialState);
+}
+
+const REQUIRED_FIELDS = ["CARD", "LASTNAME", "FIRSTNAME"];
+
 const Form = ({ addTheClient }) => {
 
   const [text, setText] = useState(initialState)
@@ -30,26 +45,15 @@ const Form = ({ addTheClient }) => {
     })
   }
 
-  function submitHandler(e) {
-    e.preventDefault();
-    const { LASTNAME, FIRSTNAME, CARD } = text;
 
-    if (!CARD || !LASTNAME || !FIRSTNAME) {
-      alert('Заполните все обязательные поля воода отмеченные (*) : "CARD", "LASTNAME", "FIRSTNAME"');
-      return
-    }
-
-    addTheClient(text);
-    setText(initialState)
-  }
 
   return (
-    <form onSubmit={(e) => submitHandler(e)}>
+    <form onSubmit={(e) => submitHandler(e, text, setText, addTheClient)}>
       {
         keys.map(el => (
           <input
             key={el}
-            placeholder={el === "CARD" || el === "LASTNAME" || el === "FIRSTNAME" ? `${el} *` : el}
+            placeholder={REQUIRED_FIELDS.includes(el) ? `${el} *` : el}
             value={text[el]}
             name={el}
             onChange={(event) => updateState(event)} />

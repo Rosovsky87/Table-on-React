@@ -1,3 +1,6 @@
+$main-color: #227ca0;
+$border-color: #ddd;
+
 
 form{
   margin: 100px;
@@ -7,27 +10,27 @@ input{
   margin: 5px;
   width: 170px;
   border-radius: 7px;
-  border: 2px solid #ddd;
+  border: 2px solid $border-color;
 }
 
 input:focus{
-  outline-color: #227ca0;
+  outline-color: $main-color;
 }
 
 .btn-form {
   cursor: pointer;
   margin: 5px;
   width: 178px;
-  border: 2px solid #ddd;
+  border: 2px solid $border-color;
   border-radius: 7px;
 }
 
 .btn-form:hover{
-  color:#227ca0
+  color:$main-color
 }
 
 .btn-form:active{
-  border: 2px solid #227ca0;
+  border: 2px solid $main-color;
 }
 
 .btn-form:focus{

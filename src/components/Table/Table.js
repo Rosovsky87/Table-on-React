@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useTable } from 'react-table';
 import { COLUMNS } from '../App/App';
-import './table.css';
+import './table.scss';
 
 
 export const Table = ({ combinedData, onDelete }) => {
