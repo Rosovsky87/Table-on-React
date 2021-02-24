@@ -21,7 +21,7 @@ function submitHandler(e, textValue, setText, addTheClient) {
   const { LASTNAME, FIRSTNAME, CARD } = textValue;
 
   if (!CARD || !LASTNAME || !FIRSTNAME) {
-    alert('Заполните все обязательные поля воода отмеченные (*) : "CARD", "LASTNAME", "FIRSTNAME"');
+    alert('Заполните все обязательные поля ввода отмеченные (*) : "CARD", "LASTNAME", "FIRSTNAME"');
     return
   }
 
